@@ -1,380 +1,112 @@
 <!DOCTYPE HTML>
- <html>
-  <head>
-	<title>Ingenier&iacute;a civil</title>
-	
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingeniería Civil</title>
+
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Scripts JS -->
     <script src="buscador/js/jquery.js"></script>
     <script src="buscador/js/jquery.dataTables.min.js"></script>
-	
-	<style type="text/css">
-		* {
-		padding: 5px;
-		margin: 0px;
-	    }
-        
-        #tx1 {
-         text-align: center;
-         width: 100%;
-         height: auto;
-	    }
-        
-	    #header {
-		 margin:auto;
-		 width:500px;
-		 font-family:arial;
-	    }
-        
-	    ul,ol {
-		 list-style:none;
-	    }
-        
-	    .nac li a {
-		 background-color:skyblue;
-		 color:white;
-		 text-decoration:none;
-		 padding:10px 15px;
-		 display:block;
-	    }
-        
-	    .nac li a:hover {
-		 background-color:gray;
-	    }
-        
-	    .nac> li {
-		 float:left;
-	    }
-	    .nac li ul {
-		 display:none;
-		 position:absolute;
-		 min-width:140px;
-	    }
-	    .nac li:hover > ul {
-		 display:block;
-	    }
-        
-	    .nac li ul li {
-		 position:relative;
-	    }
-	    .nac li ul li ul {
-		 right:-140px;
-		 top:0px;
-	    }
-	</style>
-   
-    <style type="text/css">
-
-	    footer{
-         margin:0px;
-	     padding:0px;
-	     font-family: sans-serif;    
-         box-sizing: border-box;    
-	     width:100%;
-	     background:#202020;
-	     color:white;
-	    }
-	    .container-footer-all{
-	     width:100%;
-	     max-width: 1200px;
-	     margin:auto;
-         padding: 0px;
-        }
-	    .container{
-	     display:flex;
-	     justify-content:space-between;
-	    }
-	    .columna1{
-	     max-width:400px;
-	    }
-	    .columna1 h1{
-	     font-size:15px;
-	     font-family:times-new-roman;
-	    }
-	    .columna1 p{
-	     font-size:12px;
-	     font-family:times-new-roman;
-	     color:#c7c7c7;
-	     margin-top:0px;
-	    }
-        
-	    .columna2{
-	     max-width:400px;
-	    }
-	    .columna2 h1{
-	     font-size:15px;
-	     font-family:times-new-roman;
-	    }
-	    .row{
-	     margin-top:0px;
-	     display:flex;
-	    }
-        .row img{
-         width:30px;
-         height:30px;
-        }
-        .row label{
-         font-family:times-new-roman;
-         font-size:12px;
-         margin-top:7px;
-         margin-left:7px;
-         color:#c7c7c7;
-        }
-        
-        .columna3{
-         max-width:400px;
-        }
-        .columna3 h1{
-         font-size:15px;
-         font-family:times-new-roman;
-        }
-        .row2{
-         margin-top:0px;
-         display:flex;
-        }
-        
-        .row2 img{
-         width:30px;
-         height:30px;
-        }
-        .row2 label{
-         font-size:12px;
-         margin-top:5px;
-         margin-left:5px;
-         max-width:140px;
-         color:#c7c7c7;
-         font-family:times-new-roman;
-        }
-        
-        .container-footer{
-         width:100%;
-         background: #101010;
-         display: flex;
-         justify-content: space-between;
-         padding: 0px;
-        }
-        .copyright{
-         color: #c7c7c7;
-         font-size:10px;
-        }
-        .copyright a{
-         text-decoration: none;
-         color: white;
-         font-size:10px;
-         font-weight: bold;
-        }
-        
-        form {
-            width: 300px;
-            margin-left:70%;
-            margin-top: 5px;
-            position:absolute;
-        }
-        fieldset {
-            display: inline-block;
-            background: white; 
-            border: 1px solid black;
-            border-radius: 5px;
-            padding: 0px 0px 0px 30px; 
-        }
-        input, button {
-            position: relative;
-            float: left;
-            width: 200px;
-            height: 30px;
-            padding: 0px;
-        }
-        input{
-            border: none;
-            color: #666;
-            z-index: 2;
-        }
-        button {
-            font-size: 1.4em;
-            width: 35px;
-            border: none;
-            background: gray;
-            transform: translate(-50px,0);
-            transition-duration: .3s;
-            }
-        .busc {
-            transform: translate(-180px,0px);
-            transition: all .1s ease-in-out;
-        }
-        input:focus {
-            outline: none;
-        }
-        input:focus + button {
-            transform: translate(0,0);
-            transition-duration: 0.3s;
-        } 
-        input:focus + button .busc {
-            transform: translate(0,0);
-            transition-duration: .5s; 
-        }
-        .sear1 {
-            width: 90%;
-            max-width: 200px;
-            margin: auto;
-            background: #fff;
-            padding: 0 10px;
-            padding-bottom: 5px;
-            overflow-x: hidden;
-            max-height: 15%;
-            display: none;
-        }
-        .search-table {
-            width: 100%; 
-        }
-        tbody tr td {
-            width: 100%;
-        }
-        tbody tr td a:hover{
-            border: 2px solid #378fd9;
-        }
-        .dataTables_length {
-            display: none;
-        }
-        .dataTables_filter {
-            display: none;
-        }
-        .dataTables_info {
-            display: none;
-        }
-        .dataTables_paginate {
-            display: none;
-        }
-        .central {
-            margin-top: 10px;
-            background-color: lawngreen;
-            height: auto;
-            width: 85%;
-            border: 1px solid black
-        }
-    </style>
-
+    <script src="buscador/js/buscador.js"></script>
 </head>
-  
-  <body bgcolor="#fafad2">
-   
+<body>
+
     <div id="tx1">
-        <img src="photosop/logo.jpg"  width="200px" height="auto">
-        <font face="Bankghotic Md BT" color="lime" size="15">INGENIER&Iacute;A CIVIL</font>
-	</div>
-   
-    <div id="header">
-        <ul class="nac">
-          <li><a href="">Inicio</a>
-          </li>
-          <li><a href="">Cursos</a>
-            <ul >
-             <li><a href="tencologiacon.html">Tecnologia del concreto</a>
-             </li>
-             <li><a href="">Mec�nica de suelos</a></li>
-            </ul>
-          </li>
-          <li><a href="">Tutoriales</a></li>
-          <li><a href="">HP Prime</a>
-            <ul>
-             <li><a href="">Programaci�n en HP Prime</a></li>
-             <li><a href="">Programas</a></li>
-            </ul>
-          </li>
-        </ul>
+        <img src="photosop/logo.jpg" width="200px" alt="Logo">
+        <h1>INGENIERÍA CIVIL</h1>
     </div>
-        
-        <form>
-          <fieldset>
-            <input type="search" placeholder=" Buscar..." id="inputBusqueda"/> 
-            <button type="submit1">
-                <div class="busc"><img src="icon/buscador.png" width="17px" height="auto"></div>
+
+    <nav id="header">
+        <ul class="nac">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="">Cursos</a>
+                <ul>
+                    <li><a href="tecnolcon/tencologiacon.html">Tecnología del concreto</a></li>
+                    <li><a href="">Mecánica de suelos</a></li>
+                </ul>
+            </li>
+            <li><a href="">Tutoriales</a></li>
+            <li><a href="">HP Prime</a>
+                <ul>
+                    <li><a href="">Programación en HP Prime</a></li>
+                    <li><a href="">Programas</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <form>
+        <fieldset>
+            <input type="search" placeholder="Buscar..." id="inputBusqueda">
+            <button type="submit">
+                <img src="icon/buscador.png" width="17px" alt="Buscar">
             </button>
             <div class="sear1" id="sear1">
-             <table class="search-table" id="searchTable">
-                <thead>
-                    <tr>
-                         <td></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><a>Mec�nica de suelos</a></td>
-                    </tr> 
-                    <tr>
-                        <td><a>HP Prime</a></td>
-                    </tr> 
-                    <tr>
-                        <td><a>Curso</a></td>
-                    </tr>
-                     <tr>
-                        <td><a>Tecnolog�a del concreto</a></td>
-                    </tr> 
-                    <tr>
-                        <td><a>Ingenier�a civil</a></td>
-                    </tr> 
-                </tbody>
-             </table>
-            </div>  
-          </fieldset>
-        </form>
+                <table class="search-table" id="searchTable">
+                    <tbody>
+                        <tr><td><a href="#">Mecánica de suelos</a></td></tr>
+                        <tr><td><a href="#">HP Prime</a></td></tr>
+                        <tr><td><a href="#">Curso</a></td></tr>
+                        <tr><td><a href="#">Tecnología del concreto</a></td></tr>
+                        <tr><td><a href="#">Ingeniería civil</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </form>
+
     <div class="img1">
-    <center><img src="imagenes/img1.jpg" width="100%"></center>
-    </div>  
+        <img src="imagenes/img1.jpg" alt="Imagen 1" width="100%">
+    </div>
 
     <div class="central">
-        <iframe width="400" height="200" src="https://www.youtube.com/embed/LPO6rUtQris" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-        <p><font face="arial">hola buenos dias mi nombre es jeineeer y estoy creando una pagina web</font></p>
-        <p><font face="arial">hola buenos dias mi nombre es jeineeer y estoy creando una pagina web</font></p>
-        <font face="arial">hola buenos dias mi nombre es jeineeer y estoy creando una pagina web</font>
-        <font face="arial">hola buenos dias mi nombre es jeineeer y estoy creando una pagina web</font>
-        <font face="arial">hola buenos dias mi nombre es jeineeer y estoy creando una pagina web</font>
-        <font face="arial">hola buenos dias mi nombre es jeineeer y estoy creando una pagina web</font>
-        <font face="arial">hola buenos dias mi nombre es jeineeer y estoy creando una pagina web</font><font face="arial">hola buenos dias mi nombre es jeineeer y estoy creando una pagina web</font>
+        <iframe width="400" height="200" src="https://www.youtube.com/embed/LPO6rUtQris" frameborder="0" allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Hola buenos días, mi nombre es Jeineer y estoy creando una página web.</p>
     </div>
 
     <footer>
-    <div class="container-footer-all">
-        <div class="container">
-            <div class="columna1">
-            <h1>M�s informaci�n</h1>
-            <p>esta compania esta dedicada a la ense�anza.</p>
-            </div>
-            <div class="columna2">
-            <h1>Redes sociales</h1>
-                <div class="row">
-                <img src="icon/facebook.png">
-                <label>Facebook</label>
+        <div class="container-footer-all">
+            <div class="container">
+                <div class="columna1">
+                    <h1>Más información</h1>
+                    <p>Esta compañía está dedicada a la enseñanza.</p>
                 </div>
-
-                <div class="row">
-                <img src="icon/youtube.png">
-                <label>Youtube</label>
+                <div class="columna2">
+                    <h1>Redes sociales</h1>
+                    <div class="row">
+                        <img src="icon/facebook.png" alt="Facebook">
+                        <label>Facebook</label>
+                    </div>
+                    <div class="row">
+                        <img src="icon/youtube.png" alt="YouTube">
+                        <label>YouTube</label>
+                    </div>
                 </div>
-            </div>
-            <div class="columna3">
-            <h1>Informaci�n</h1>
-                <div class="row2">
-                <img src="icon/casa.png">
-                <label>CHOTA</label>
-                </div>
-
-                <div class="row2">
-                <img src="icon/tel.png">
-                <label>+51 939 339 164</label>
-                </div>
-
-                <div class="row2">
-                <img src="icon/correo.png">
-                <label>jeiner-jjmn@outlook.com</label>
+                <div class="columna3">
+                    <h1>Información</h1>
+                    <div class="row2">
+                        <img src="icon/casa.png" alt="Ubicación">
+                        <label>CHOTA</label>
+                    </div>
+                    <div class="row2">
+                        <img src="icon/tel.png" alt="Teléfono">
+                        <label>+51 939 339 164</label>
+                    </div>
+                    <div class="row2">
+                        <img src="icon/correo.png" alt="Correo">
+                        <label>jeiner-jjmn@outlook.com</label>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
         <div class="container-footer">
-            <div class="copyright">
-            � 2019 Todos los derechos reservados<a href="">Magtimus</a>
-            </div>
+            <p>© 2019 Todos los derechos reservados <a href="#">Magtimus</a></p>
         </div>
-      </footer>
-     <script src="buscador/js/buscador.js"></script>
-  </body>
+    </footer>
 
+</body>
 </html>
