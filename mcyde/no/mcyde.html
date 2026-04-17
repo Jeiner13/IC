@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maestría en Construcción y Diseño Estructural | UBA</title>
+    <style>
+        /* =========================================
+           Variables de estilo (Inspirado en xstructure)
+           ========================================= */
+        :root {
+            --primary-bg: #121212;        /* Fondo oscuro moderno */
+            --secondary-bg: #1e1e1e;      /* Fondo de tarjetas */
+            --accent-color: #007acc;      /* Azul técnico/estructural */
+            --accent-hover: #005f9e;
+            --text-main: #f5f5f5;         /* Texto claro para contraste */
+            --text-muted: #aaaaaa;
+            --border-color: #333333;
+        }
+
+        /* =========================================
+           Reset y Estilos Base
+           ========================================= */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           Barra de Navegación (Header)
+           ========================================= */
+        header {
+            background-color: var(--secondary-bg);
+            border-bottom: 2px solid var(--accent-color);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* =========================================
+           Sección Hero (Encabezado principal)
+           ========================================= */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(18,18,18,0.9) 0%, rgba(30,30,30,0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1541888086425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* =========================================
+           Contenedor Principal y Grillas
+           ========================================= */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+            display: inline-block;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        /* =========================================
+           Tarjetas de Contenido (Videos y Slides)
+           ========================================= */
+        .card {
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,122,204,0.2);
+            border-color: var(--accent-color);
+        }
+
+        .card-header {
+            padding: 15px 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header h3 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .badge {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Contenedor responsivo para Iframes (16:9) */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            height: 0;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* =========================================
+           Footer
+           ========================================= */
+        footer {
+            background-color: var(--secondary-bg);
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            margin-top: 2rem;
+        }
+
+        /* =========================================
+           Media Queries para móviles
+           ========================================= */
+        @media (max-width: 768px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+            nav {
+                display: none; /* En un proyecto real podrías añadir un menú hamburguesa aquí */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="https://jeiner13.github.io/IC/" class="logo">IC <span>Cursos</span></a>
+        <nav>
+            <a href="https://jeiner13.github.io/IC/">Inicio</a>
+            <a href="https://jeiner13.github.io/xstructure/">XStructure</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Maestría en Construcción y Diseño Estructural</h1>
+        <p>Universidad de Buenos Aires (UBA) - Material de estudio, presentaciones y clases grabadas.</p>
+    </section>
+
+    <div class="container">
+
+        <h2 class="section-title">Módulo 1: Fundamentos de Diseño Estructural</h2>
+        <div class="grid-layout">
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Diapositivas de Clase</h3>
+                    <span class="badge">Slides</span>
+                </div>
+                <div class="iframe-container">
+                    <iframe 
+                        src="https://docs.google.com/presentation/d/e/2PACX-1vQ.../embed?start=false&loop=false&delayms=3000"

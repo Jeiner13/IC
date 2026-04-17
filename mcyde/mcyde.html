@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos y Especializaciones | UBA</title>
+    <style>
+        /* =========================================
+           Variables de estilo
+           ========================================= */
+        :root {
+            --primary-bg: #121212;
+            --secondary-bg: #1e1e1e;
+            --accent-color: #007acc;
+            --accent-hover: #005f9e;
+            --text-main: #f5f5f5;
+            --text-muted: #aaaaaa;
+            --border-color: #333333;
+        }
+
+        /* =========================================
+           Reset y Estilos Base
+           ========================================= */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           Barra de Navegación (Header)
+           ========================================= */
+        header {
+            background-color: var(--secondary-bg);
+            border-bottom: 2px solid var(--accent-color);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* =========================================
+           Sección Hero
+           ========================================= */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(18,18,18,0.9) 0%, rgba(30,30,30,0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1541888086425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* =========================================
+           Contenedor Principal y Grilla de Cursos
+           ========================================= */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+            display: inline-block;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        /* =========================================
+           Tarjetas de Cursos
+           ========================================= */
+        .course-card {
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 122, 204, 0.15);
+            border-color: var(--accent-color);
+        }
+
+        .course-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .course-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .course-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            flex-grow: 1; /* Empuja el botón hacia abajo */
+        }
+
+        .btn-ingresar {
+            display: inline-block;
+            text-align: center;
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 0.7rem 1rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-ingresar:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        /* =========================================
+           Footer
+           ========================================= */
+        footer {
+            background-color: var(--secondary-bg);
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">IC <span>Cursos</span></a>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Programa Completo</a>
+            <a href="#">Mi Perfil</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Maestría en Construcción y Diseño Estructural</h1>
+        <p>Universidad de Buenos Aires.</p>
+        <p>Selecciona un curso para acceder al material teórico y audiovisual.</p>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">Asignaturas Disponibles</h2>
+        
+        <div class="course-grid">
+            
+            <div class="course-card">
+                <img src="img/gestion.png" alt="Gestión Sustentable" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Gestión Sustentable en Grandes Obras de Ingeniería</h3>
+                    <a href="curso-gestion.html" class="btn-ingresar">Ingresar al Curso</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?auto=format&fit=crop&w=600&q=80" alt="Hormigón" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Inspección y Ejecución de Estructuras de Hormigón</h3>
+                    <a href="curso-inspeccion.html" class="btn-ingresar">Ingresar al Curso</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="img/dis-puentes.png" alt="Puentes" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Diseño Avanzado y Construcción de Puentes</h3>
+                    <a href="curso-puentes.html" class="btn-ingresar">Ingresar al Curso</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="img/compo.png" alt="Composición Estructural" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Composición Estructural</h3>
+                    <a href="curso-composicion.html" class="btn-ingresar">Ingresar al Curso</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c469b82819d?auto=format&fit=crop&w=600&q=80" alt="Naves Industriales" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Naves Industriales</h3>
+                    <a href="curso-naves.html" class="btn-ingresar">Ingresar al Curso</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80" alt="Patología Hormigón" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Patología de Estructuras de Hormigón</h3>
+                    <a href="curso-patologia.html" class="btn-ingresar">Ingresar al Curso</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Estructuras Especiales" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Estructuras Especiales</h3>
+                    <a href="curso-especiales.html" class="btn-ingresar">Ingresar al Curso</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1584464457636-6e42b2ab62a9?auto=format&fit=crop&w=600&q=80" alt="Ingeniería de Presas" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Ingeniería de Presas</h3>
+                    <a href="curso-presas.html" class="btn-ingresar">Ingresar al Curso</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1533519890835-26a978d38104?auto=format&fit=crop&w=600&q=80" alt="Fractomecánica" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Fractomecánica en Ingeniería Estructural</h3>
+                    <a href="curso-fractomecanica.html" class="btn-ingresar">Ingresar al Curso</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=600&q=80" alt="Hormigones Eco-sustentables" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Hormigones Eco-sustentables</h3>
+                    <a href="curso-ecosustentables.html" class="btn-ingresar">Ingresar al Curso</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1503594384566-4ff6be6ce92f?auto=format&fit=crop&w=600&q=80" alt="Demolición" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Demolición y Deconstrucción de Estructuras</h3>
+                    <a href="curso-demolicion.html" class="btn-ingresar">Ingresar al Curso</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Documentación de Obra" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Documentación de Obra e Informes Técnicos</h3>
+                    <a href="curso-documentacion.html" class="btn-ingresar">Ingresar al Curso</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1555529733-0e670560f7e1?auto=format&fit=crop&w=600&q=80" alt="Puentes de Acero" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Puentes de Acero y Mixtos</h3>
+                    <a href="curso-puentes-acero.html" class="btn-ingresar">Ingresar al Curso</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1599395914613-2d259fb964a2?auto=format&fit=crop&w=600&q=80" alt="Túneles" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Diseño y Construcción de Túneles y Obras Subterráneas</h3>
+                    <a href="curso-tuneles.html" class="btn-ingresar">Ingresar al Curso</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Gerenciamiento de Equipos" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Gerenciamiento de Equipos en la Obra</h3>
+                    <a href="curso-gerenciamiento.html" class="btn-ingresar">Ingresar al Curso</a>
+                </div>
+            </div>
+
+        </div> </div> <footer>
+        <p>&copy; 2026 Maestría en Construcción y Diseño Estructural | Universidad de Buenos Aires</p>
+    </footer>
+
+</body>
+</html>

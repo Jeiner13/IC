@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Composición Estructural | Maestría UBA</title>
+    <style>
+        /* =========================================
+           Variables de estilo
+           ========================================= */
+        :root {
+            --primary-bg: #121212;
+            --secondary-bg: #1e1e1e;
+            --card-bg: #2a2a2a;
+            --accent-color: #007acc;
+            --text-main: #f5f5f5;
+            --text-muted: #aaaaaa;
+            --border-color: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           Header
+           ========================================= */
+        header {
+            background-color: var(--secondary-bg);
+            border-bottom: 2px solid var(--accent-color);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .btn-volver {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .btn-volver:hover {
+            color: var(--accent-color);
+        }
+
+        /* =========================================
+           Hero Sección
+           ========================================= */
+        .hero-curso {
+            padding: 3rem 2rem;
+            background-color: var(--secondary-bg);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .hero-curso h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* =========================================
+           Contenedor Principal y Clases
+           ========================================= */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .clase-container {
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .clase-titulo {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .clase-fecha {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: normal;
+        }
+
+        /* Fila Horizontal de Recursos */
+        .recursos-fila {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .recurso-item {
+            flex: 1;
+            min-width: 320px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .recurso-header {
+            padding: 10px 15px;
+            background-color: rgba(0,0,0,0.3);
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .etiqueta-diapositiva { color: #ff4d4d; font-size: 0.8rem; font-weight: bold; }
+        .etiqueta-video { color: #00cc66; font-size: 0.8rem; font-weight: bold; }
+
+        /* Contenedor Iframe 16:9 */
+        .media-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; 
+            height: 0;
+            background-color: #000;
+            flex-grow: 1;
+        }
+
+        .media-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* =========================================
+           Footer
+           ========================================= */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">IC <span>Cursos</span></a>
+        <nav>
+            <a href="mcyde.html" class="btn-volver">← Volver al Inicio</a>
+        </nav>
+    </header>
+
+    <section class="hero-curso">
+        <span class="breadcrumb">Módulo de Especialización</span>
+        <h1>Composición Estructural</h1>
+        <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">
+            Material de estudio organizado por clases. Visualiza las diapositivas y la grabación de cada sesión en vivo.
+        </p>
+    </section>
+
+    <div class="container">
+        
+        <div class="clase-container">
+            <h2 class="clase-titulo">
+                Clase 1: Introducción / Tipos y Formas Estructurales
+                <span class="clase-fecha">Semana 1</span>
+            </h2>
+            
+            <div class="recursos-fila">
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Parte 1: Introducción <span class="etiqueta-diapositiva">DIAPOSITIVA</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1OVZ5Q0bevSFMSF3WcZitCqJf2MoFbKps/preview"></iframe>
+                    </div>
+                </div>
+
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Parte 2: Tipos y Formas Estructurales <span class="etiqueta-diapositiva">DIAPOSITIVA</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://drive.google.com/file/d/15fPMIIT6IDFFTL6F51aljaZGjwxijH4V/preview"></iframe>
+                    </div>
+                </div>
+
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Grabación de la Clase <span class="etiqueta-video">VIDEO</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://www.youtube.com/embed/-k1nhfN_uNs?si=eWAuHWrVVfLg9iZM" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clase-container">
+            <h2 class="clase-titulo">
+                Clase 2: Materiales y Funcionamiento estructural
+                <span class="clase-fecha">Semana 2</span>
+            </h2>
+            
+            <div class="recursos-fila">
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Presentación Teórica <span class="etiqueta-diapositiva">DIAPOSITIVA</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://drive.google.com/file/d/12hvNhMh96ExsKhR7Y1KF3D2-Cj1nXUBb/preview"></iframe>
+                    </div>
+                </div>
+
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Grabación de la Clase <span class="etiqueta-video">VIDEO</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://www.youtube.com/embed/rll3NuprZLc?si=hHfo2fchC1pyfHMG" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clase-container">
+            <h2 class="clase-titulo">
+                Clase 3: Acciones y Solicitaciones / Fiabilidad Estructural
+                <span class="clase-fecha">Semana 3</span>
+            </h2>
+            
+            <div class="recursos-fila">
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Presentación Teórica <span class="etiqueta-diapositiva">DIAPOSITIVA</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1GakYeTNDKEAgsJYvyCZY36MKy9tFIKVe/preview"></iframe>
+                    </div>
+                </div>
+
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Grabación de la Clase <span class="etiqueta-video">VIDEO</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://www.youtube.com/embed/XNJVt-ajE_I?si=24ZiZEMhH9M1YvsN" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clase-container">
+            <h2 class="clase-titulo">
+                Clase 4: El Diseño Estructural
+                <span class="clase-fecha">Semana 4</span>
+            </h2>
+            
+            <div class="recursos-fila">
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Presentación Teórica <span class="etiqueta-diapositiva">DIAPOSITIVA</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1kYBfxQVuWNC4h4UuXqW7tIvTWUxyHoc9/preview"></iframe>
+                    </div>
+                </div>
+
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Grabación de la Clase <span class="etiqueta-video">VIDEO</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Maestría en Construcción y Diseño Estructural | UBA</p>
+    </footer>
+
+</body>
+</html>
