@@ -187,6 +187,103 @@
             border-top: 1px solid var(--border-color);
         }
 
+        /* =========================================
+        Sección de Recursos Adicionales
+        ========================================= */
+        .recursos-adicionales {
+            margin-top: 5rem;
+            padding-top: 2rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+        }
+
+        .recursos-extras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .card-extra {
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-extra h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-drive-folder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--accent-color);
+            color: var(--text-main);
+            padding: 1rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: auto;
+            transition: all 0.3s ease;
+        }
+
+        .btn-drive-folder:hover {
+            background-color: var(--accent-color);
+            box-shadow: 0 0 15px rgba(0, 122, 204, 0.4);
+        }
+
+        .lista-docs {
+            list-style: none;
+        }
+
+        .lista-docs li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .lista-docs li:last-child {
+            border-bottom: none;
+        }
+
+        .lista-docs a {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+        }
+
+        .lista-docs a:hover {
+            color: var(--text-main);
+        }
+
+        .nota-texto {
+            background: rgba(0,0,0,0.2);
+            padding: 1rem;
+            border-left: 4px solid var(--accent-color);
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
     </style>
 </head>
 <body>
@@ -401,6 +498,42 @@
                 </div>
             </div>
         </div>
+
+
+        <section class="recursos-adicionales">
+            <h2 class="section-subtitle">📚 Recursos y Documentación Extra</h2>
+            
+            <div class="recursos-extras-grid">
+                
+                <div class="card-extra">
+                    <h3>📁 Biblioteca de la Materia</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                        Accede a la carpeta de Google Drive proporcionada en el curso, donde encontrarás la información completa.
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                        *Ojo, solo puedes visualizar archivos con correo personal jeiner*****13@gmail.com.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1x62tj8fIyKaXNOzsV7dUFNGxVGOpjVoO?usp=drive_link" target="_blank" class="btn-drive-folder">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" width="20" alt="Drive">
+                        Abrir Carpeta de Archivos
+                    </a>
+                </div>
+
+                <div class="card-extra">
+                    <h3>📝 Documentos Importantes</h3>
+                    <ul class="lista-docs">
+                        <li>
+                            <a href="#">📄 Programa Analítico de la Materia.pdf</a>
+                        </li>
+                        
+                    </ul>
+                    <div class="nota-texto" style="margin-top: 1.5rem;">
+                        <strong>Nota:</strong> Los informes técnicos deben entregarse en formato PDF siguiendo las normas de edición de la UBA.
+                    </div>
+                </div>
+
+            </div>
+        </section>
 
 
     </div>
