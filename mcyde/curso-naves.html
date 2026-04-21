@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naves Industriales | Maestría UBA</title>
+    <style>
+        /* =========================================
+           Variables de estilo
+           ========================================= */
+        :root {
+            --primary-bg: #121212;
+            --secondary-bg: #1e1e1e;
+            --card-bg: #2a2a2a;
+            --accent-color: #007acc;
+            --text-main: #f5f5f5;
+            --text-muted: #aaaaaa;
+            --border-color: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           Header
+           ========================================= */
+        header {
+            background-color: var(--secondary-bg);
+            border-bottom: 2px solid var(--accent-color);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .btn-volver {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .btn-volver:hover {
+            color: var(--accent-color);
+        }
+
+        /* =========================================
+           Hero Sección
+           ========================================= */
+        .hero-curso {
+            padding: 3rem 2rem;
+            background-color: var(--secondary-bg);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .hero-curso h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* =========================================
+           Contenedor Principal y Clases
+           ========================================= */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .clase-container {
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .clase-titulo {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .clase-fecha {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: normal;
+        }
+
+        /* Fila Horizontal de Recursos */
+        .recursos-fila {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .recurso-item {
+            flex: 1;
+            min-width: 320px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .recurso-header {
+            padding: 10px 15px;
+            background-color: rgba(0,0,0,0.3);
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .etiqueta-diapositiva { color: #ff4d4d; font-size: 0.8rem; font-weight: bold; }
+        .etiqueta-video { color: #00cc66; font-size: 0.8rem; font-weight: bold; }
+
+        /* Contenedor Iframe 16:9 */
+        .media-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; 
+            height: 0;
+            background-color: #000;
+            flex-grow: 1;
+        }
+
+        .media-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* =========================================
+           Footer
+           ========================================= */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* =========================================
+        Sección de Recursos Adicionales
+        ========================================= */
+        .recursos-adicionales {
+            margin-top: 5rem;
+            padding-top: 2rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+        }
+
+        .recursos-extras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .card-extra {
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-extra h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-drive-folder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--accent-color);
+            color: var(--text-main);
+            padding: 1rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: auto;
+            transition: all 0.3s ease;
+        }
+
+        .btn-drive-folder:hover {
+            background-color: var(--accent-color);
+            box-shadow: 0 0 15px rgba(0, 122, 204, 0.4);
+        }
+
+        .lista-docs {
+            list-style: none;
+        }
+
+        .lista-docs li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .lista-docs li:last-child {
+            border-bottom: none;
+        }
+
+        .lista-docs a {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+        }
+
+        .lista-docs a:hover {
+            color: var(--text-main);
+        }
+
+        .nota-texto {
+            background: rgba(0,0,0,0.2);
+            padding: 1rem;
+            border-left: 4px solid var(--accent-color);
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">IC <span>Cursos</span></a>
+        <nav>
+            <a href="mcyde.html" class="btn-volver">← Volver al Inicio</a>
+        </nav>
+    </header>
+
+    <section class="hero-curso">
+        <span class="breadcrumb">Módulo de Especialización</span>
+        <h1>Naves Industriales</h1>
+        <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">
+            Material de estudio organizado por clases. Visualiza las diapositivas y la grabación de cada sesión en vivo.
+        </p>
+    </section>
+
+    <div class="container">
+        
+        <div class="clase-container">
+            <h2 class="clase-titulo">
+                Clase 1: Generalidades
+                <span class="clase-fecha">Semana 1</span>
+            </h2>
+            
+            <div class="recursos-fila">
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Presentación Teórica <span class="etiqueta-diapositiva">DIAPOSITIVA</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1z8pOui2k9hsJv_iFIbCZIdADF9fP24z2/preview"></iframe>
+                    </div>
+                </div>
+
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Grabación de la Clase <span class="etiqueta-video">VIDEO</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://www.youtube.com/" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clase-container">
+            <h2 class="clase-titulo">
+                Clase 2: Factores de Diseño
+                <span class="clase-fecha">Semana 2</span>
+            </h2>
+            
+            <div class="recursos-fila">
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Presentación Teórica <span class="etiqueta-diapositiva">DIAPOSITIVA</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1L6dilc3Tsg-V9TdCLsQLcjbI2uT2S0iZ/preview"></iframe>
+                    </div>
+                </div>
+
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Grabación de la Clase <span class="etiqueta-video">VIDEO</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://www.youtube.com/" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <section class="recursos-adicionales">
+            <h2 class="section-subtitle">📚 Recursos y Documentación Extra</h2>
+            
+            <div class="recursos-extras-grid">
+                
+                <div class="card-extra">
+                    <h3>📁 Biblioteca de la Materia</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                        Accede a la carpeta de Google Drive proporcionada en el curso, donde encontrarás la información completa.
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                        *Ojo, solo puedes visualizar archivos con correo personal jeiner*****13@gmail.com.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1w_VKKneHHtUag_V2daRcCUx7qaXT_T6C?usp=sharing" target="_blank" class="btn-drive-folder">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" width="20" alt="Drive">
+                        Abrir Carpeta de Archivos
+                    </a>
+                </div>
+
+                <div class="card-extra">
+                    <h3>📝 Documentos Importantes</h3>
+                    <ul class="lista-docs">
+                        <li>
+                            <a href="#">📄 Programa Analítico de la Materia.pdf</a>
+                        </li>
+                        
+                    </ul>
+                    <div class="nota-texto" style="margin-top: 1.5rem;">
+                        <strong>Nota:</strong> Los informes técnicos deben entregarse en formato PDF siguiendo las normas de edición de la UBA.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Maestría en Construcción y Diseño Estructural | UBA</p>
+    </footer>
+
+</body>
+</html>
