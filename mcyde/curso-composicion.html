@@ -187,6 +187,104 @@
             border-top: 1px solid var(--border-color);
         }
 
+        /* =========================================
+        Sección de Recursos Adicionales
+        ========================================= */
+        .recursos-adicionales {
+            margin-top: 5rem;
+            padding-top: 2rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+        }
+
+        .recursos-extras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .card-extra {
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-extra h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-drive-folder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--accent-color);
+            color: var(--text-main);
+            padding: 1rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: auto;
+            transition: all 0.3s ease;
+        }
+
+        .btn-drive-folder:hover {
+            background-color: var(--accent-color);
+            box-shadow: 0 0 15px rgba(0, 122, 204, 0.4);
+        }
+
+        .lista-docs {
+            list-style: none;
+        }
+
+        .lista-docs li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .lista-docs li:last-child {
+            border-bottom: none;
+        }
+
+        .lista-docs a {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+        }
+
+        .lista-docs a:hover {
+            color: var(--text-main);
+        }
+
+        .nota-texto {
+            background: rgba(0,0,0,0.2);
+            padding: 1rem;
+            border-left: 4px solid var(--accent-color);
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+
     </style>
 </head>
 <body>
@@ -324,6 +422,311 @@
                 </div>
             </div>
         </div>
+
+        <div class="clase-container">
+            <h2 class="clase-titulo">
+                Clase 5: XXXXXXX
+                <span class="clase-fecha">Semana X</span>
+            </h2>
+            
+            <div class="recursos-fila">
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Presentación Teórica <span class="etiqueta-diapositiva">DIAPOSITIVA</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1FNWZb1-ckiqLvZdeQwL3J9eDnw3Rccw9/preview"></iframe>
+                    </div>
+                </div>
+
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Grabación de la Clase <span class="etiqueta-video">VIDEO</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://www.youtube.com/embed/NUnB0GJDRHw?si=JINvhcUcj4DLe77r" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clase-container">
+            <h2 class="clase-titulo">
+                Clase 6: XXXXXXX
+                <span class="clase-fecha">Semana X</span>
+            </h2>
+            
+            <div class="recursos-fila">
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Presentación Teórica <span class="etiqueta-diapositiva">DIAPOSITIVA</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://drive.google.com/file/d/12dZu7viP_F2C_RsR8E2nvupyknuioLj0/preview"></iframe>
+                    </div>
+                </div>
+
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Grabación de la Clase <span class="etiqueta-video">VIDEO</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://www.youtube.com/embed/2J9_5MwL_rE?si=qWWeNOjTvzzzpycw" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clase-container">
+            <h2 class="clase-titulo">
+                Clase 7: XXXXXXX
+                <span class="clase-fecha">Semana X</span>
+            </h2>
+            
+            <div class="recursos-fila">
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Presentación Teórica <span class="etiqueta-diapositiva">DIAPOSITIVA</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1H0yzFllf2dLXdwhSlwLQNnEbhWCsohjh/preview"></iframe>
+                    </div>
+                </div>
+
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Grabación de la Clase <span class="etiqueta-video">VIDEO</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://www.youtube.com/embed/bYsgWxmS2hI?si=jWvGSIerLubg_sPx" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clase-container">
+            <h2 class="clase-titulo">
+                Clase 8: XXXXXXX
+                <span class="clase-fecha">Semana X</span>
+            </h2>
+            
+            <div class="recursos-fila">
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Presentación Teórica <span class="etiqueta-diapositiva">DIAPOSITIVA</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1altEx8u93V0t6_jc9UORzApAQNBZW92y/preview"></iframe>
+                    </div>
+                </div>
+
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Grabación de la Clase <span class="etiqueta-video">VIDEO</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://www.youtube.com/embed/d09qGm4KBlA?si=8ZogsPA2h0TofbTM" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clase-container">
+            <h2 class="clase-titulo">
+                Clase 9: XXXXXXX
+                <span class="clase-fecha">Semana X</span>
+            </h2>
+            
+            <div class="recursos-fila">
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Presentación Teórica <span class="etiqueta-diapositiva">DIAPOSITIVA</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1kYcws8pZRgSgYzC1Uvpr60UCbTNFAVM6/preview"></iframe>
+                    </div>
+                </div>
+
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Grabación de la Clase <span class="etiqueta-video">VIDEO</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://www.youtube.com/embed/Xd-OiDRchkQ?si=JNPOQuSlGgXKInpy" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clase-container">
+            <h2 class="clase-titulo">
+                Clase 10: XXXXXXX
+                <span class="clase-fecha">Semana X</span>
+            </h2>
+            
+            <div class="recursos-fila">
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Presentación Teórica <span class="etiqueta-diapositiva">DIAPOSITIVA</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1JcC8rhjI8HVbTa_mnu_QnVZEFfR00eBg/preview"></iframe>
+                    </div>
+                </div>
+
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Grabación de la Clase <span class="etiqueta-video">VIDEO</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://www.youtube.com/embed/8Icp58LOFcI?si=yuqMvJ4hmz7apAOR" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clase-container">
+            <h2 class="clase-titulo">
+                Clase 11: XXXXXXX
+                <span class="clase-fecha">Semana X</span>
+            </h2>
+            
+            <div class="recursos-fila">
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Presentación Teórica <span class="etiqueta-diapositiva">DIAPOSITIVA</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://drive.google.com/file/d/18Kt3sY7vYqoCGX3JEZ6QZjjpvlabkKXv/preview"></iframe>
+                    </div>
+                </div>
+
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Grabación de la Clase <span class="etiqueta-video">VIDEO</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://www.youtube.com/embed/n-0n6qaSmUA?si=lRIivs5YISN0b9VI" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clase-container">
+            <h2 class="clase-titulo">
+                Clase 12: XXXXXXX
+                <span class="clase-fecha">Semana X</span>
+            </h2>
+            
+            <div class="recursos-fila">
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Presentación Teórica <span class="etiqueta-diapositiva">DIAPOSITIVA</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1Ewm8Hmice2oK2sBvAYZ_Og99R1H1esiv/preview"></iframe>
+                    </div>
+                </div>
+
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Grabación de la Clase <span class="etiqueta-video">VIDEO</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://www.youtube.com/embed/_D_2xUxvhv8?si=3geyzkR0NB3kV0b2" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clase-container">
+            <h2 class="clase-titulo">
+                Clase 13: XXXXXXX
+                <span class="clase-fecha">Semana X</span>
+            </h2>
+            
+            <div class="recursos-fila">
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Presentación Teórica <span class="etiqueta-diapositiva">DIAPOSITIVA</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1ZeudxjjjnIsq9w8yAoEmVhnh8QduGJj8/preview"></iframe>
+                    </div>
+                </div>
+
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Grabación de la Clase <span class="etiqueta-video">VIDEO</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://www.youtube.com/embed/VcsKO5PuIEU?si=56j-pQtcTo4sdbjT" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clase-container">
+            <h2 class="clase-titulo">
+                Clase 14: XXXXXXX
+                <span class="clase-fecha">Semana X</span>
+            </h2>
+            
+            <div class="recursos-fila">
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Presentación Teórica <span class="etiqueta-diapositiva">DIAPOSITIVA</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1qWZZNppK454sTB09UIHrnp7eqh7Qp_Tl/preview"></iframe>
+                    </div>
+                </div>
+
+                <div class="recurso-item">
+                    <div class="recurso-header">
+                        Grabación de la Clase <span class="etiqueta-video">VIDEO</span>
+                    </div>
+                    <div class="media-wrapper">
+                        <iframe src="https://www.youtube.com/embed/pXLh3eRTcdc?si=ctRGvPYjLlQc5hDh" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="recursos-adicionales">
+            <h2 class="section-subtitle">📚 Recursos y Documentación Extra</h2>
+            
+            <div class="recursos-extras-grid">
+                
+                <div class="card-extra">
+                    <h3>📁 Biblioteca de la Materia</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                        Accede a la carpeta de Google Drive proporcionada en el curso, donde encontrarás la información completa.
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                        *Ojo, solo puedes visualizar archivos con correo personal jeiner*****13@gmail.com.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1G1pH4EHcuJ8yxigJpX0yhV98ninyHp3t?usp=sharing" target="_blank" class="btn-drive-folder">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" width="20" alt="Drive">
+                        Abrir Carpeta de Archivos
+                    </a>
+                </div>
+
+                <div class="card-extra">
+                    <h3>📝 Documentos Importantes</h3>
+                    <ul class="lista-docs">
+                        <li>
+                            <a href="#">📄 Programa Analítico de la Materia.pdf</a>
+                        </li>
+                        
+                    </ul>
+                    <div class="nota-texto" style="margin-top: 1.5rem;">
+                        <strong>Nota:</strong> Los informes técnicos deben entregarse en formato PDF siguiendo las normas de edición de la UBA.
+                    </div>
+                </div>
+
+            </div>
+        </section>
 
 
     </div>
